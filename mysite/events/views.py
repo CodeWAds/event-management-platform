@@ -43,10 +43,10 @@ def register_events(request, event_id):
         return redirect("events")
     return render(request, "events/register_events.html", {"event": event})
 
-
+# создание мероприятия
 def add_events(request):
     if request.method == "POST":
-        event = Event()
+        event = Event() # создаётся объект мероприятия
         event.title = request.POST.get("title")
         event.description = request.POST.get("description")
         event.date = request.POST.get("date") + " " + request.POST.get("time")
@@ -58,7 +58,7 @@ def add_events(request):
         return redirect("events")
     return render(request, "events/add_events.html", {})
 
-
+# редактирование мероприятия
 def edit_events(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     if request.method == "POST":
@@ -75,6 +75,7 @@ def edit_events(request, event_id):
     return render(request, "events/edit_events.html", context)
 
 
+# Удаление мероприятия
 def cancel_events(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     event.delete()
