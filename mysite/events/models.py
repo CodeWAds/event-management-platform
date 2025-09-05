@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
+
+# Модель События
 class Event(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
@@ -12,14 +14,16 @@ class Event(models.Model):
     max_participants = models.IntegerField(default=5)
     num_participants = models.IntegerField(default=0)
 
+    # Отображение объекта в виде строки
     def __str__(self):
         return self.title
 
-
+# Модель Участника
 class Participant(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField()
     events = models.ManyToManyField(Event, related_name="participants")
 
+    # Отображение объекта в виде строки
     def __str__(self):
         return self.name

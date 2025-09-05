@@ -9,7 +9,9 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+# ==============================================
+#  Данный файл содержит настройки для приложения
+# ============================================== 
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,16 +22,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# в комментарии выше написано что ниже секретный ключ который нельзя никому давать
 SECRET_KEY = "django-insecure-6w_o*1l6d=acfwtf@v3(kz^07zf8%&p804gix_qv8@ze2$@7!$"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Перечислены хосты для которых есть доступ к приложению
 ALLOWED_HOSTS = ['192.168.30.41','localhost','127.0.0.1']
 
 
 # Application definition
 
+# Подключенные приложения
 INSTALLED_APPS = [
     "events.apps.EventsConfig",
     "django.contrib.admin",
@@ -45,6 +50,7 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
 ]
 
+# Перечисление "промежуточных звеньев"
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -79,6 +85,7 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# Подключение к базе данных
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",

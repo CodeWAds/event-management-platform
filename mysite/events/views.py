@@ -82,7 +82,7 @@ def cancel_events(request, event_id):
     return redirect("events")
 
 
-@login_required
+@login_required # помогает перенаправлять пользователя на авторизацию если он не авторизован
 def my_events(request):
     events = Event.objects.filter(user=request.user).order_by("date")
     username = request.user.username
