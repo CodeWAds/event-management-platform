@@ -18,3 +18,7 @@
 
 ## Demo Video
 https://github.com/nsec-vat-django/event-management-platform/assets/82178341/041bfe85-7859-4f4a-80e1-0a66ad6c35bc
+
+Для запуска:
+`pip install django`
+`python manage.py runserver`
